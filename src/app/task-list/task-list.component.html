@@ -1,0 +1,103 @@
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskFormModal">
+    Create Task
+  </button>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Due Date</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of tasks; let i = index;">
+          <td>{{ row.title }}</td>
+          <td>{{ row.description }}</td>
+          <td>{{ row.dueDate }}</td>
+          <td>{{ row.priority }}</td>
+          <td>{{ row.status }}</td>
+          <td>
+            <button class="btn btn-primary btn-sm" (click)="openModal(i)">
+                <i class="fa fa-edit mr-2"></i>
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteTask(i)">
+                <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+ <!-- create and edit modal -->
+ <!-- Modal -->
+<div class="modal fade" id="taskFormModal" tabindex="-1" role="dialog" aria-labelledby="taskFormModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="taskFormModalLabel">Create Task</h5>
+          <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button> -->
+        </div>
+        <div class="modal-body">
+          <!-- Task Form -->
+          <form #taskForm="ngForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+            <!-- Title -->
+            <div class="form-group mb-4">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" id="title" name="title" [(ngModel)]="task.title" required>
+              <div class="invalid-feedback">Please enter a title.</div>
+            </div>
+  
+            <!-- Description -->
+            <div class="form-group mb-4">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" name="description" [(ngModel)]="task.description" required></textarea>
+              <div class="invalid-feedback">Please enter a description.</div>
+            </div>
+  
+            <!-- Due Date -->
+            <div class="form-group mb-4">
+              <label for="dueDate">Due Date</label>
+              <input type="date" class="form-control" id="dueDate" name="dueDate" [(ngModel)]="task.dueDate" required>
+              <div class="invalid-feedback">Please select a due date.</div>
+            </div>
+  
+            <!-- Priority -->
+            <div class="form-group mb-4">
+              <label for="priority">Priority</label>
+              <select class="form-control" id="priority" name="priority" [(ngModel)]="task.priority" required>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+              <div class="invalid-feedback">Please select a priority.</div>
+            </div>
+  
+            <!-- Status -->
+            <div class="form-group mb-4">
+              <label for="status">Status</label>
+              <select class="form-control" id="status" name="status" [(ngModel)]="task.status" required>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+              <div class="invalid-feedback">Please select a status.</div>
+            </div>
+  
+            <button type="submit" class="btn btn-primary mr-5">Save</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  

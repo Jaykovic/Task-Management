@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,300&family=Poppins:wght@400;700&family=Raleway:ital,wght@0,300;0,900;1,400&family=Source+Sans+Pro:ital,wght@1,900&display=swap');
+
+
+  /* colors and their variables */
+  :root{
+    --orange-color: #DA722C;
+    --dark-blue-color: #023047;
+    --dark-color: #070917;
+    --light-blue-color: #6F7DFB;
+    --light-color: #E8F7FB;
+  }
+
+  body{
+    margin: 0;
+  }
+
+  *,
+  *::after,
+  *::before{
+    box-sizing: border-box;
+  }
+
+ 
