@@ -2,6 +2,29 @@
     Create Task
   </button>
 
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="priorityDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Priority
+  </button>
+  <div class="dropdown-menu" aria-labelledby="priorityDropdown">
+    <button class="dropdown-item" (click)="filterByPriority('High')">High</button>
+    <button class="dropdown-item" (click)="filterByPriority('Medium')">Medium</button>
+    <button class="dropdown-item" (click)="filterByPriority('Low')">Low</button>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="statusDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Status
+  </button>
+  <div class="dropdown-menu" aria-labelledby="statusDropdown">
+    <button class="dropdown-item" (click)="filterByStatus('Pending')">Pending</button>
+    <button class="dropdown-item" (click)="filterByStatus('In Progress')">In Progress</button>
+    <button class="dropdown-item" (click)="filterByStatus('Completed')">Completed</button>
+  </div>
+</div>
+
+
 <div class="table-responsive">
     <table class="table table-striped">
       <thead>
