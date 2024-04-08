@@ -12,6 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class TaskListComponent implements OnInit {
   taskForm: FormGroup;
   tasks: Task[] = [];
+  filteredTasks: Task[] = [];
+  filteredPriority: Task[] = [];
   task: Task = {
     id: 0,
     title: '',
@@ -93,6 +95,16 @@ export class TaskListComponent implements OnInit {
 
   clearForm(): void {
     this.task = { id: 0, title: '', description: '', dueDate: new Date(), priority: '', status: '' };
+  }
+
+   filterByPriority(priority: string): void {
+    this.filteredPriority = this.tasks.filter(task => task.priority === priority);
+    console.log('Filter by priority:', filteredPriority);
+  }
+
+  filterByStatus(status: string): void {
+    this.filteredTasks = this.tasks.filter(task => task.status === status);
+    console.log('Filter by status:', filteredTasks);
   }
 
 }
